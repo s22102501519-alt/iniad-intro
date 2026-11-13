@@ -3,16 +3,16 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#101a2b">
+    <meta name="theme-color" content="#05070c">
     <title>INIADの紹介</title>
     <style>
       :root {
-        color-scheme: light;
-        --ink: #1d2b3d;
-        --muted: #627187;
-        --accent: #286b83;
-        --accent-dark: #17465d;
-        --paper: #fff;
+        color-scheme: dark;
+        --ink: #edf4ff;
+        --muted: #b0bfd2;
+        --accent: #73e4d1;
+        --accent-dark: #a4f0e2;
+        --panel: #101621;
       }
 
       * { box-sizing: border-box; }
@@ -25,39 +25,56 @@
         font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
         line-height: 1.9;
         background:
-          radial-gradient(ellipse at 86% 12%, rgba(116, 95, 173, .13), transparent 28rem),
-          radial-gradient(ellipse at 12% 88%, rgba(64, 145, 164, .12), transparent 30rem),
-          #eef3f6;
+          radial-gradient(ellipse at 82% 10%, rgba(84, 55, 142, .2), transparent 30rem),
+          radial-gradient(ellipse at 10% 85%, rgba(27, 119, 131, .13), transparent 32rem),
+          #05070c;
       }
 
       main {
         position: relative;
+        isolation: isolate;
         width: min(100%, 880px);
         margin: 0 auto;
         padding: clamp(32px, 7vw, 72px);
         overflow: hidden;
-        background: var(--paper);
-        border: 1px solid rgba(37, 76, 98, .1);
+        background: linear-gradient(145deg, rgba(17, 24, 36, .97), rgba(11, 16, 25, .98));
+        border: 1px solid rgba(135, 168, 201, .2);
         border-radius: 24px;
-        box-shadow: 0 24px 70px rgba(24, 48, 69, .12);
+        box-shadow: 0 24px 80px rgba(0, 0, 0, .48), 0 0 50px rgba(71, 74, 135, .1);
       }
 
       main::before {
         position: absolute;
+        z-index: -1;
         top: 0;
         left: 0;
         width: 100%;
-        height: 6px;
+        height: 4px;
         content: "";
-        background: linear-gradient(90deg, #286b83, #6f77a8 72%, #b29bca);
+        background: linear-gradient(90deg, #53d9c4, #7784ec 70%, #b477d1);
       }
 
+      .hero-art {
+        position: absolute;
+        z-index: -1;
+        top: 18px;
+        right: 0;
+        width: min(64%, 520px);
+        height: 270px;
+        opacity: .63;
+        pointer-events: none;
+      }
+
+      .hero-art svg { width: 100%; height: 100%; }
+
       h1 {
+        position: relative;
         margin: 0 0 48px;
-        color: #173c55;
+        color: #f3f6ff;
         font-size: clamp(2rem, 5vw, 3rem);
         letter-spacing: .08em;
         line-height: 1.35;
+        text-shadow: 0 2px 18px rgba(3, 7, 15, .95);
       }
 
       h1::after {
@@ -69,6 +86,8 @@
         background: linear-gradient(90deg, var(--accent), #9b8cb6);
         border-radius: 99px;
       }
+
+      section { position: relative; }
 
       h2 {
         display: flex;
@@ -83,9 +102,9 @@
         width: 8px;
         height: 8px;
         content: "";
-        background: #7181a5;
+        background: #8a9bda;
         border-radius: 50%;
-        box-shadow: 0 0 12px rgba(113, 129, 165, .35);
+        box-shadow: 0 0 12px rgba(115, 228, 209, .45);
       }
 
       p { margin: 0; color: var(--muted); }
@@ -102,9 +121,9 @@
       li {
         position: relative;
         padding: 14px 16px 14px 38px;
-        color: #33475b;
-        background: #f5f8fa;
-        border: 1px solid #e7edf1;
+        color: #d7e2f0;
+        background: rgba(25, 35, 49, .88);
+        border: 1px solid #293849;
         border-radius: 12px;
         transition: transform .2s ease, border-color .2s ease, background .2s ease;
       }
@@ -113,15 +132,15 @@
         position: absolute;
         top: 50%;
         left: 16px;
-        color: #7181a5;
-        content: "✦";
-        font-size: .85rem;
+        color: var(--accent);
+        content: "♪";
+        font-size: .9rem;
         transform: translateY(-50%);
       }
 
       li:hover {
-        background: #f1f5f8;
-        border-color: #cbd9e1;
+        background: #1b2939;
+        border-color: #4a8290;
         transform: translateY(-2px);
       }
 
@@ -129,18 +148,56 @@
         body { padding: 24px 14px; }
         main { border-radius: 18px; }
         h1 { margin-bottom: 36px; }
+        .hero-art { top: 22px; width: 75%; height: 210px; opacity: .42; }
       }
 
       @media (prefers-reduced-motion: reduce) {
-        *, *::before, *::after {
-          scroll-behavior: auto !important;
-          transition-duration: .01ms !important;
-        }
+        *, *::before, *::after { transition-duration: .01ms !important; }
       }
     </style>
   </head>
   <body>
     <main>
+      <div class="hero-art" aria-hidden="true">
+        <svg viewBox="0 0 520 270" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="glow" x1="110" y1="70" x2="480" y2="230" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#69E8D0"/>
+              <stop offset="1" stop-color="#9D7BE8"/>
+            </linearGradient>
+            <filter id="softGlow" x="-30%" y="-30%" width="160%" height="160%">
+              <feGaussianBlur stdDeviation="3" result="blur"/>
+              <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+            </filter>
+          </defs>
+          <!-- A singer holding a microphone, with code drifting out as musical phrases. -->
+          <g stroke="url(#glow)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#softGlow)">
+            <path d="M257 260c8-35 22-53 53-61l26-7 33 12c25 9 39 28 45 56" opacity=".8"/>
+            <path d="M309 114c-4-27 13-48 38-49 27-1 43 20 40 47l-3 28c-3 25-18 42-39 42-20 0-35-16-38-39z" fill="#121a29"/>
+            <path d="M309 112c-13 9-17 23-10 35 4 7 11 10 18 10"/>
+            <path d="M380 117c8 2 14 8 13 17-1 8-8 13-17 12"/>
+            <path d="M337 145c7 5 15 6 22 2"/>
+            <path d="M340 111c3 2 7 2 10 0" opacity=".7"/>
+            <path d="M358 110c3 2 7 2 10 0" opacity=".7"/>
+            <path d="M289 130c-15-6-27-16-35-30"/>
+            <path d="M253 100l-12-25"/>
+            <rect x="230" y="51" width="18" height="48" rx="9" transform="rotate(-24 230 51)" fill="#121a29"/>
+            <path d="M230 64l-12 5m20 2-12 6m20 1-12 6" opacity=".85"/>
+            <path d="M318 77c14-19 38-25 58-17" opacity=".65"/>
+            <path d="M400 82c10-8 20-7 27 1m-25 14c9-6 17-4 22 3" opacity=".7"/>
+          </g>
+          <g fill="#a8f4e5" font-family="monospace" font-size="15" font-weight="600" opacity=".88">
+            <text x="45" y="51">♪ &lt;Python&gt;</text>
+            <text x="365" y="45">{ code }</text>
+            <text x="405" y="171">♫</text>
+            <text x="88" y="210">def sing():</text>
+            <text x="73" y="235" fill="#b9a2ff">&gt;&gt; hello, world!</text>
+          </g>
+          <path d="M125 83c35-21 56-23 81-18m192 145c22-5 38-16 51-35" stroke="#9b87e5" stroke-width="1.5" stroke-dasharray="3 8" opacity=".65"/>
+          <circle cx="194" cy="66" r="3" fill="#73e4d1"/>
+          <circle cx="448" cy="197" r="3" fill="#b49aff"/>
+        </svg>
+      </div>
       <h1>INIADの紹介</h1>
       <section aria-labelledby="overview-heading">
         <h2 id="overview-heading">概要</h2>
